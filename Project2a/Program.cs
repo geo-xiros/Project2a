@@ -12,7 +12,6 @@ namespace Project2a
         {
             UserInputNumber userInputNumber = new UserInputNumber();
             UserInputOperator userInputOperator = new UserInputOperator();
-            Console.WriteLine(Calculator.Operators());
 
             int number1;
             while (!userInputNumber.GetInputNumber("Get First Number:", out number1))
