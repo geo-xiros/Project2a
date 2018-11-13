@@ -12,6 +12,7 @@ namespace Project2a
         {
             UserInputNumber userInputNumber = new UserInputNumber();
             UserInputOperator userInputOperator = new UserInputOperator();
+            Console.WriteLine(Calculator.Operators());
 
             int number1;
             while (!userInputNumber.GetInputNumber("Get First Number:", out number1))
@@ -26,12 +27,14 @@ namespace Project2a
             }
 
             string calculateOperator;
-            while (!userInputOperator.GetInputOperator("Get Second Number:", out calculateOperator))
+            while (!userInputOperator.GetInputOperator($"Get calculation operator ({Calculator.Operators()}):", out calculateOperator) ||
+                   !Calculator.IsValidOperator(calculateOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
             }
 
-
+            Console.WriteLine(Calculator.Calculate(calculateOperator, number1, number2));
+            Console.ReadLine();
 
         }
     }

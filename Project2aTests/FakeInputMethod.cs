@@ -9,15 +9,17 @@ namespace Project2aTests
 {
     class FakeInputMethod 
     {
-        //private 
-        public FakeInputMethod()
+        private List<string> _inputs;
+        public FakeInputMethod(List<string> inputs)
         {
-
-        }
+            _inputs= inputs;
+    }
 
         public string GetInput()
         {
-            throw new NotImplementedException();
+            string input = _inputs[0];
+            _inputs.Remove(input);
+            return input;
         }
     }
 }

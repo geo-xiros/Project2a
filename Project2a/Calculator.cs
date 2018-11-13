@@ -8,28 +8,41 @@ namespace Project2a
 {
     static public class Calculator
     {
-        delegate int MathMethod(int number1, int Number2);
-        static private Dictionary<string, MathMethod> MethodsByOperator;
+        public delegate int MathMethod(int number1, int number2);
+        static private Dictionary<string, MathMethod> _methodsByOperator;
 
         static Calculator()
         {
-            throw new NotImplementedException();
+            _methodsByOperator = new Dictionary<string, MathMethod>()
+            {
+                {"+", (n1,n2) => n1+n2 },
+                {"-", (n1,n2) => n1-n2 },
+                {"/", (n1,n2) => n1/n2 },
+                {"*", (n1,n2) => n1*n2 },
+                {"%", (n1,n2) => n1%n2 },
+                {"sqrt", (n1,n2) => (int) Math.Pow((double) n1,(double) 1/n2) }
+            };
         }
-        static void AddOperator(string calculateOperator, MathMethod calculationMethod)
+        static public void AddOperator(string calculateOperator, MathMethod calculationMethod)
         {
-            throw new NotImplementedException();
+            _methodsByOperator.Add(calculateOperator, calculationMethod);
         }
-        static bool IsValidOperator(string calculateOperator)
+        static public bool IsValidOperator(string calculateOperator)
         {
-            throw new NotImplementedException();
+            return _methodsByOperator.ContainsKey(calculateOperator);
         }
-        static int OperatorsCount()
+        static public string Operators()
         {
-            throw new NotImplementedException();
+            return string.Join(", ", _methodsByOperator.Select(i => i.Key).ToArray());
         }
-        static int Calculate()
+        static public int OperatorsCount()
         {
-            throw new NotImplementedException();
+            return _methodsByOperator.Count;
+        }
+        static public int Calculate(string calculateOperator, int number1, int number2)
+        {
+            MathMethod mathMethod = _methodsByOperator[calculateOperator];
+            return mathMethod(number1, number2);
         }
     }
 }

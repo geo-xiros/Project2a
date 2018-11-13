@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    class UserInputOperator : UserInput
+    public class UserInputOperator : UserInput
     {
         public UserInputOperator() : this(Console.ReadLine) { }
         public UserInputOperator(GetInput inputMethod) : base(inputMethod) { }
 
         public bool GetInputOperator(string message, out string calculateOperator)
         {
-            throw new NotImplementedException();
+            Console.Write(message);
+            calculateOperator = _inputMethod();
+            return true;
         }
     }
 }

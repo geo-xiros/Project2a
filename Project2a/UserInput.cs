@@ -9,7 +9,7 @@ namespace Project2a
     public class UserInput
     {
         public delegate string GetInput();
-        private GetInput _inputMethod;
+        protected GetInput _inputMethod;
 
         public UserInput(GetInput inputMethod)
         {
