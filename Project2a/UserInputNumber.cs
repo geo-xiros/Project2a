@@ -8,7 +8,8 @@ namespace Project2a
 {
     class UserInputNumber : UserInput
     {
-        public UserInputNumber() : base(Console.ReadLine) { }
+        public UserInputNumber() : this(Console.ReadLine) { }
+        public UserInputNumber(GetInput inputMethod) : base(inputMethod) { }
 
         public bool GetInputNumber(string message, out int number)
         {

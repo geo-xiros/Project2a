@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Project2aTests
 {
     [TestClass]
-    public class UserInput
+    public class UserInputTest
     {
         [TestMethod]
         public void TestMethod1()

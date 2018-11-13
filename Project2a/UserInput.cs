@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    class UserInput
+    public class UserInput
     {
         public delegate string GetInput();
         private GetInput _inputMethod;

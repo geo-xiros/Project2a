@@ -8,7 +8,8 @@ namespace Project2a
 {
     class UserInputOperator : UserInput
     {
-        public UserInputOperator() : base(Console.ReadLine) { }
+        public UserInputOperator() : this(Console.ReadLine) { }
+        public UserInputOperator(GetInput inputMethod) : base(inputMethod) { }
 
         public bool GetInputOperator(string message, out string calculateOperator)
         {

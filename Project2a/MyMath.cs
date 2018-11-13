@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    static class MyMath
+    static public class MyMath
     {
         static int Fibonacci(int number)
         {
