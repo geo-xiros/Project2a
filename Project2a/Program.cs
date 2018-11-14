@@ -17,6 +17,7 @@ namespace Project2a
             Console.WriteLine(result1);
             int result2 = twoNumbersCalculator2.GetTwoNumbersCalculation();
             Console.WriteLine(result2);
+
             Console.ReadLine();
 
         }

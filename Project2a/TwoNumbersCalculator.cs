@@ -20,15 +20,15 @@ namespace Project2a
 
             int number1 = GetANumber("Give First Number:");
             int number2 = GetANumber("Give Second Number:");
-            string calculateOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+            string calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
 
-            while (calculateOperator == "/" && number2 == 0)
+            while (calculationOperator == "/" && number2 == 0)
             {
                 Console.WriteLine("Can not divide by zero.");
                 number2 = GetANumber("Give a Second Number :");
             }
 
-            return Calculator.Calculate(calculateOperator, number1, number2);
+            return Calculator.Calculate(calculationOperator, number1, number2);
 
         }
         int GetANumber(string inputMessage)
@@ -42,13 +42,13 @@ namespace Project2a
         }
         string GetAnOperator(string inputMessage)
         {
-            string calculateOperator;
-            while (!_userInputOperator.GetInputOperator(inputMessage, out calculateOperator) ||
-                   !Calculator.IsValidOperator(calculateOperator))
+            string calculationOperator;
+            while (!_userInputOperator.GetInputOperator(inputMessage, out calculationOperator) ||
+                   !Calculator.IsValidOperator(calculationOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
             }
-            return calculateOperator;
+            return calculationOperator;
         }
 
     }
