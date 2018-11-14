@@ -8,8 +8,9 @@ namespace Project2a
 {
     class TwoNumbersCalculator
     {
-        private UserInputNumber _userInputNumber ;
-        private UserInputOperator _userInputOperator ;
+        private UserInputNumber _userInputNumber;
+        private UserInputOperator _userInputOperator;
+        public TwoNumbersCalculator() : this(new UserInputNumber(), new UserInputOperator()) { }
         public TwoNumbersCalculator(UserInputNumber userInputNumber, UserInputOperator userInputOperator)
         {
             _userInputNumber = userInputNumber;

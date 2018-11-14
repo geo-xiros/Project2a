@@ -10,8 +10,8 @@ namespace Project2a
     {
         static void Main(string[] args)
         {
-            TwoNumbersCalculator twoNumbersCalculator1 = new TwoNumbersCalculator(new UserInputNumber(), new UserInputOperator());
-            TwoNumbersCalculator twoNumbersCalculator2 = new TwoNumbersCalculator(new UserInputNumber(), new UserInputOperator());
+            TwoNumbersCalculator twoNumbersCalculator1 = new TwoNumbersCalculator();
+            TwoNumbersCalculator twoNumbersCalculator2 = new TwoNumbersCalculator();
 
             int result1 = twoNumbersCalculator1.GetTwoNumbersCalculation();
             Console.WriteLine(result1);
