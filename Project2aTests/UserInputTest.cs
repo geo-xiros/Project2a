@@ -12,12 +12,13 @@ namespace Project2aTests
         public void TestInputNumber()
         {
             FakeInputMethod fakeInputMethod = new FakeInputMethod(new List<string> { "5", "6" });
+
             UserInputNumber userInputNumber = new UserInputNumber(fakeInputMethod.GetInput);
-
-            Assert.AreEqual(true, userInputNumber.GetInputNumber("get a number:", out int number1));
+            int number1;
+            Assert.AreEqual(true, userInputNumber.GetInputNumber("get a number:", out number1));
             Assert.AreEqual(5, number1);
-
-            Assert.AreEqual(true, userInputNumber.GetInputNumber("get a number:", out int number2));
+            int number2;
+            Assert.AreEqual(true, userInputNumber.GetInputNumber("get a number:", out number2));
             Assert.AreEqual(6, number2);
 
         }

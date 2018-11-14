@@ -8,15 +8,15 @@ namespace Project2a
 {
     static public class MyMath
     {
-        static int Fibonacci(int number)
+        static public int Fibonacci(int number)
         {
             throw new NotImplementedException();
         }
-        static int GreatestCommonDivisor(int number)
+        static public int GreatestCommonDivisor(int number)
         {
             throw new NotImplementedException();
         }
-        static bool IsPrime(int number)
+        static public bool IsPrime(int number)
         {
             throw new NotImplementedException();
         }

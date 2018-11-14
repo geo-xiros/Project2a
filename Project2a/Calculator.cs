@@ -35,10 +35,6 @@ namespace Project2a
         {
             return string.Join(", ", _methodsByOperator.Select(i => i.Key).ToArray());
         }
-        //static public int OperatorsCount()
-        //{
-        //    return _methodsByOperator.Count;
-        //}
         static public int Calculate(string calculateOperator, int number1, int number2)
         {
             MathMethod mathMethod = _methodsByOperator[calculateOperator];
