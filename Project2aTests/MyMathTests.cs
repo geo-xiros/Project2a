@@ -9,23 +9,29 @@ namespace Project2aTests
     public class MyMathTests
     {
         [TestMethod]
-        public void TestPrimeMethod()
+        public void IsPrimeShouldReturnTrue()
         {
-            // First 100 Prime numebrs
-            int[] primeNumbers = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,
-                                  193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,
-                                  397,401,409,419,421,431,433,439,443,449,457,461,463,467,479,487,491,499,503,509,521,523,541 };
-            foreach (int number in primeNumbers)
-            {
-                Assert.AreEqual<bool>(true, MyMath.IsPrime(number), "It should return a prime Number.");
-            }
-            var notPrimeNumbers = Enumerable.Range(1, primeNumbers.Max()).Where(i => !primeNumbers.Contains(i));
-            foreach (int number in notPrimeNumbers)
-            {
-                Assert.AreEqual<bool>(false, MyMath.IsPrime(number), "It should not return a prime Number.");
-            }
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(2), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(3), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(5), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(7), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(193), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(397), "It should return a prime Number.");
+            Assert.AreEqual<bool>(true, MyMath.IsPrime(491), "It should return a prime Number.");
+        }
+
+        [TestMethod]
+        public void IsPrimeShouldReturnFalse()
+        {
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(1), "It should not return a prime Number.");
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(4), "It should not return a prime Number.");
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(6), "It should not return a prime Number.");
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(10), "It should not return a prime Number.");
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(240), "It should not return a prime Number.");
+            Assert.AreEqual<bool>(false, MyMath.IsPrime(398), "It should not return a prime Number.");
 
         }
+
         [TestMethod]
         public void TestFibonacci()
         {
@@ -36,7 +42,6 @@ namespace Project2aTests
             {
                 Assert.AreEqual(fibonacciNumbers[number], MyMath.Fibonacci(number));
             }
-            Console.WriteLine(MyMath.Fibonacci(100000));
         }
         //[TestMethod]
         //public void TestGreatestCommonDivisor()
