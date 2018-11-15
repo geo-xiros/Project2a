@@ -43,6 +43,32 @@ namespace Project2aTests
                 Assert.AreEqual(fibonacciNumbers[number], MyMath.Fibonacci(number));
             }
         }
+        [TestMethod]
+        public void IsFibonacciNumberShouldReturnTrue()
+        {
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(0));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(1));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(1));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(2));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(3));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(5));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(8));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(13));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(21));
+            Assert.AreEqual(true, MyMath.IsFibonacciNumber(34));
+        }
+
+        [TestMethod]
+        public void IsFibonacciNumberShouldReturnFalse()
+        {
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(4));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(6));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(7));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(9));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(10));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(11));
+            Assert.AreEqual(false, MyMath.IsFibonacciNumber(12));
+        }
         //[TestMethod]
         //public void TestGreatestCommonDivisor()
         //{

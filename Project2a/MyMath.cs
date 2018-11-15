@@ -10,10 +10,29 @@ namespace Project2a
     {
         static public int Fibonacci(int number)
         {
-            if (number == 0) return 0;
-            if (number < 2) return 1;
-            return Fibonacci(number - 1) + Fibonacci(number - 2);
+            int a = 0;
+            int b = 1;
+            for (; number>0;number--)
+            {
+                int c = b;
+                b += a;
+                a = c;
+            }
+            return a ;
         }
+        static public bool IsFibonacciNumber(int number)
+        {
+            int a = 0;
+            int b = 1;
+            for (; a <number ; )
+            {
+                int c = b;
+                b += a;
+                a = c;
+            }
+            return a==number;
+        }
+
         static public int GreatestCommonDivisor(int number1, int number2)
         {
             if (number1 == 0)
