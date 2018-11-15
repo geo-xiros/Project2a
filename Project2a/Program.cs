@@ -22,20 +22,17 @@ namespace Project2a
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 10; i++)
-                Console.WriteLine(  MyMath.Fibonacci(i));
-
-            for (int i = 0; i < 35; i++) 
-                Console.WriteLine($"IsFibonacciNumber({i})={MyMath.IsFibonacciNumber(i)}");
 
             TwoNumbersCalculator twoNumbersCalculator1 = new TwoNumbersCalculator();
             TwoNumbersCalculator twoNumbersCalculator2 = new TwoNumbersCalculator();
 
-            int result1 = twoNumbersCalculator1.GetTwoNumbersCalculation();
-            Console.WriteLine(result1);
-            int result2 = twoNumbersCalculator2.GetTwoNumbersCalculation();
-            Console.WriteLine(result2);
+            int result1 = twoNumbersCalculator1.GetTwoNumbersCalculation(); Console.WriteLine(result1);
+            int result2 = twoNumbersCalculator2.GetTwoNumbersCalculation(); Console.WriteLine(result2);
 
+            int fibonacci = MyMath.Fibonacci(result2);
+            Console.WriteLine($"Fibonacci({result2}) = {fibonacci}");
+
+            Console.WriteLine($"IsFibonacciNumber({result2}) = {MyMath.IsFibonacciNumber(result2)}");
 
             Console.ReadLine();
 
