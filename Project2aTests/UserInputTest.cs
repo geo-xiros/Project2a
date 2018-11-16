@@ -11,7 +11,7 @@ namespace Project2aTests
         [TestMethod]
         public void TestInputNumber()
         {
-            FakeInputMethod fakeInputMethod = new FakeInputMethod(new List<string> { "5", "6" });
+            FakeInputMethod fakeInputMethod = new FakeInputMethod( "5,6");
 
             UserInputNumber userInputNumber = new UserInputNumber(fakeInputMethod.GetInput);
             int number1;
@@ -24,7 +24,7 @@ namespace Project2aTests
         }
         public void TestInputOperator()
         {
-            FakeInputMethod fakeInputMethod = new FakeInputMethod(new List<string> {"+","-","*" });
+            FakeInputMethod fakeInputMethod = new FakeInputMethod("+,-,*");
             UserInputOperator userInputOperator = new UserInputOperator(fakeInputMethod.GetInput);
             string calculateOperator;
             Assert.AreEqual(true, userInputOperator.GetInputOperator("get an operator:", out calculateOperator));
