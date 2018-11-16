@@ -41,14 +41,28 @@ namespace Project2a
             
             //   Try to  find the  Greatest Common  Divisor
             Console.WriteLine($"GreatestCommonDivisor for the results {result1}, {result2} is {MyMath.GreatestCommonDivisor(result1,result2)}");
-            
+
             // 3. Check if the 2nd result is a prime number
-            string isPrimeMessage = MyMath.IsPrime(result2) ? "" : "not ";
-            Console.WriteLine($"The number {result2} is {isPrimeMessage}a prime number.");
-            
+            try
+            {
+                string isPrimeMessage = MyMath.IsPrime(result2) ? "" : "not ";
+                Console.WriteLine($"The number {result2} is {isPrimeMessage}a prime number.");
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message + " (" + e.ParamName + ")");
+            }
+
             // 5. Based on the 2nd result find the corresponding Fibonacci Number
-            int fibonacci = MyMath.Fibonacci(result2);
-            Console.WriteLine($"The {result2}nth Fibonacci number is {fibonacci}");
+            try
+            {
+                int fibonacci = MyMath.Fibonacci(result2);
+                Console.WriteLine($"The {result2}nth Fibonacci number is {fibonacci}");
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message + " (" + e.ParamName + ")");
+            }
 
             // 6.Is the result a Fibonacci Number ???
             string isFibonacciMessage = MyMath.IsFibonacciNumber(result2) ? "" : "not ";

@@ -7,13 +7,13 @@ using Project2a;
 
 namespace Project2aTests
 {
-    class FakeInputMethod 
+    class FakeInputMethod
     {
         private List<string> _inputs;
         public FakeInputMethod(string inputs)
         {
-            _inputs= inputs.Split(',').ToList<string>();
-    }
+            _inputs = inputs.Split(',').ToList<string>();
+        }
 
         public string GetInput()
         {
