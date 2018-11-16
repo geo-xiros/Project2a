@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,7 @@ using System.Threading.Tasks;
 ///   For example if the result is 13 find the 13th Fibonacci Number.
 ///6. Is the result a Fibonacci Number???
 
+[assembly: InternalsVisibleTo("Project2aTests")]
 namespace Project2a
 {
     class Program

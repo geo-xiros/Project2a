@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    public class UserInputNumber : UserInput
+    class UserInputNumber : UserInput
     {
         public UserInputNumber() : this(Console.ReadLine) { }
         public UserInputNumber(GetInput inputMethod) : base(inputMethod) { }

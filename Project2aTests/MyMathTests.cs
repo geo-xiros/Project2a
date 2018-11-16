@@ -88,7 +88,6 @@ namespace Project2aTests
             {
                 {4, new int[2]{ 0, 4 } },
                 {8, new int[2]{ 8, 0 } },
-                {4, new int[2]{ 12, 56 } },
                 {6, new int[2]{ 18, 60 } },
                 {3, new int[2]{ 234, 555 } },
                 {40, new int[2]{ 120, 320 } }

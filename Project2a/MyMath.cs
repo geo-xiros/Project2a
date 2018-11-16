@@ -6,36 +6,36 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    static public class MyMath
+    static class MyMath
     {
         static public int Fibonacci(int number)
         {
-            if (number< 0)
+            if (number < 0)
             {
                 throw new ArgumentOutOfRangeException("number", "Parameters can not be negatives.");
             }
 
             int a = 0;
             int b = 1;
-            for (; number>0;number--)
+            for (; number > 0; number--)
             {
                 int c = b;
                 b += a;
                 a = c;
             }
-            return a ;
+            return a;
         }
         static public bool IsFibonacciNumber(int number)
         {
             int a = 0;
             int b = 1;
-            for (; a <number ; )
+            for (; a < number;)
             {
                 int c = b;
                 b += a;
                 a = c;
             }
-            return a==number;
+            return a == number;
         }
 
         static public int GreatestCommonDivisor(int number1, int number2)

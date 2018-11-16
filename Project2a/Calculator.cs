@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    static public class Calculator
+    static class Calculator
     {
         public delegate int MathMethod(int number1, int number2);
         static private Dictionary<string, MathMethod> _methodsByOperator;
