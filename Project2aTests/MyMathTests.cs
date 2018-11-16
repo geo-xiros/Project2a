@@ -86,6 +86,8 @@ namespace Project2aTests
             // list of Greatest Common Divisors for Pair of numbers 
             var gcdNumbers = new Dictionary<int, int[]>()
             {
+                {4, new int[2]{ 0, 4 } },
+                {8, new int[2]{ 8, 0 } },
                 {4, new int[2]{ 12, 56 } },
                 {6, new int[2]{ 18, 60 } },
                 {3, new int[2]{ 234, 555 } },
@@ -98,19 +100,6 @@ namespace Project2aTests
                 Assert.AreEqual(gcd.Key, MyMath.GreatestCommonDivisor(numbersToTest[0],numbersToTest[1]));
             }
         }
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GreatestCommonDivisorShouldThrowArgumentOutOfRangeExceptionNumber1()
-        {
-            Console.WriteLine(MyMath.GreatestCommonDivisor(0, 1));
 
-        }
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void GreatestCommonDivisorShouldThrowArgumentOutOfRangeExceptionNumber2()
-        {
-            Console.WriteLine(MyMath.GreatestCommonDivisor(1, 0));
-
-        }
     }
 }
