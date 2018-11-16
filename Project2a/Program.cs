@@ -65,8 +65,17 @@ namespace Project2a
             }
 
             // 6.Is the result a Fibonacci Number ???
-            string isFibonacciMessage = MyMath.IsFibonacciNumber(result2) ? "" : "not ";
-            Console.WriteLine($"The number {result2} is {isFibonacciMessage}a Fibonacci number.");
+            try
+            {
+                string isFibonacciMessage = MyMath.IsFibonacciNumber(result2) ? "" : "not ";
+                Console.WriteLine($"The number {result2} is {isFibonacciMessage}a Fibonacci number.");
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+
+                Console.WriteLine(e.Message + " (" + e.ParamName + ")");
+            }
+            
 
             Console.ReadLine();
 

@@ -20,7 +20,8 @@ namespace Project2a
                 {"/", (n1,n2) => n1/n2 },
                 {"*", (n1,n2) => n1*n2 },
                 {"%", (n1,n2) => n1%n2 },
-                {"sqrt", (n1,n2) => (int) Math.Pow((double) n1,(double) 1/n2) }
+                {"sqrt", (n1,n2) => (int) Math.Sqrt(n1) }
+                //{"sqrt", (n1,n2) => (int) Math.Pow((double) n1,(double) 1/n2) }
             };
         }
         static public void AddOperator(string calculateOperator, MathMethod calculationMethod)

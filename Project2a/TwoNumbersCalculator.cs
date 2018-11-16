@@ -25,9 +25,11 @@ namespace Project2a
         {
 
             _number1 = GetANumber("Give First Number:");
-            _number2 = GetANumber("Give Second Number:");
 
             _calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+
+            _number2 = GetANumber("Give Second Number:");
+
 
             while (_calculationOperator == "/" && _number2 == 0)
             {
