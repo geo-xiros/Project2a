@@ -28,13 +28,31 @@ namespace Project2a
             TwoNumbersCalculator twoNumbersCalculator1 = new TwoNumbersCalculator();
             TwoNumbersCalculator twoNumbersCalculator2 = new TwoNumbersCalculator();
 
-            int result1 = twoNumbersCalculator1.GetTwoNumbersCalculation(); Console.WriteLine(result1);
-            int result2 = twoNumbersCalculator2.GetTwoNumbersCalculation(); Console.WriteLine(result2);
-
+            // 1.Ask user to enter two numbers and a symbol
+            int result1 = twoNumbersCalculator1.GetTwoNumbersCalculation();
+            
+            // 2.Based on symbol choice calculate and print the result.
+            Console.WriteLine(twoNumbersCalculator1);
+            
+            // 4.Use the  calculator  2  times and  find a  second result
+            int result2 = twoNumbersCalculator2.GetTwoNumbersCalculation();
+            //   print result2
+            Console.WriteLine(twoNumbersCalculator2);
+            
+            //   Try to  find the  Greatest Common  Divisor
+            Console.WriteLine($"GreatestCommonDivisor for the results {result1}, {result2} is {MyMath.GreatestCommonDivisor(result1,result2)}");
+            
+            // 3. Check if the 2nd result is a prime number
+            string isPrimeMessage = MyMath.IsPrime(result2) ? "" : "not ";
+            Console.WriteLine($"The number {result2} is {isPrimeMessage}a prime number.");
+            
+            // 5. Based on the 2nd result find the corresponding Fibonacci Number
             int fibonacci = MyMath.Fibonacci(result2);
-            Console.WriteLine($"Fibonacci({result2}) = {fibonacci}");
+            Console.WriteLine($"The {result2}nth Fibonacci number is {fibonacci}");
 
-            Console.WriteLine($"IsFibonacciNumber({result2}) = {MyMath.IsFibonacciNumber(result2)}");
+            // 6.Is the result a Fibonacci Number ???
+            string isFibonacciMessage = MyMath.IsFibonacciNumber(result2) ? "" : "not ";
+            Console.WriteLine($"The number {result2} is {isFibonacciMessage}a Fibonacci number.");
 
             Console.ReadLine();
 

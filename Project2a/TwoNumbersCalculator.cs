@@ -10,6 +10,11 @@ namespace Project2a
     {
         private UserInputNumber _userInputNumber;
         private UserInputOperator _userInputOperator;
+        private int _number1;
+        private int _number2;
+        private int _result;
+        private string _calculationOperator;
+
         public TwoNumbersCalculator() : this(new UserInputNumber(), new UserInputOperator()) { }
         public TwoNumbersCalculator(UserInputNumber userInputNumber, UserInputOperator userInputOperator)
         {
@@ -19,20 +24,27 @@ namespace Project2a
         public int GetTwoNumbersCalculation()
         {
 
-            int number1 = GetANumber("Give First Number:");
-            int number2 = GetANumber("Give Second Number:");
-            string calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+            _number1 = GetANumber("Give First Number:");
+            _number2 = GetANumber("Give Second Number:");
 
-            while (calculationOperator == "/" && number2 == 0)
+            _calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+
+            while (_calculationOperator == "/" && _number2 == 0)
             {
                 Console.WriteLine("Can not divide by zero.");
-                number2 = GetANumber("Give a Second Number :");
+                _number2 = GetANumber("Give a Second Number :");
             }
 
-            return Calculator.Calculate(calculationOperator, number1, number2);
+            _result= Calculator.Calculate(_calculationOperator, _number1, _number2);
+            return _result;
 
         }
-        int GetANumber(string inputMessage)
+        public override string ToString()
+        {
+            return $"{_number1} {_calculationOperator} {_number2} = {_result}";
+        }
+
+        private int GetANumber(string inputMessage)
         {
             int number;
             while (!_userInputNumber.GetInputNumber(inputMessage, out number))
@@ -41,7 +53,7 @@ namespace Project2a
             }
             return number;
         }
-        string GetAnOperator(string inputMessage)
+        private string GetAnOperator(string inputMessage)
         {
             string calculationOperator;
             while (!_userInputOperator.GetInputOperator(inputMessage, out calculationOperator) ||

@@ -22,6 +22,7 @@ namespace Project2aTests
             Assert.AreEqual(6, number2);
 
         }
+        [TestMethod]
         public void TestInputOperator()
         {
             FakeInputMethod fakeInputMethod = new FakeInputMethod("+,-,*");
