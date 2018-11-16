@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Project2a;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Project2aTests
 {
@@ -31,17 +32,27 @@ namespace Project2aTests
             Assert.AreEqual<bool>(false, MyMath.IsPrime(398), "It should not return a prime Number.");
 
         }
-
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void IsPrimeShouldThrowArgumentOutOfRangeException()
+        {
+            Console.WriteLine(MyMath.IsPrime(-10));
+        }
         [TestMethod]
         public void TestFibonacci()
         {
             // First 100 Fibonacci numbers
-            int[] fibonacciNumbers = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765 };
-
+            int[] fibonacciNumbers = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89};
             for (int number = 0; number < fibonacciNumbers.Length; number++)
             {
                 Assert.AreEqual(fibonacciNumbers[number], MyMath.Fibonacci(number));
             }
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void FibonacciShouldThrowArgumentOutOfRangeException()
+        {
+            Console.WriteLine(MyMath.Fibonacci(-1));
         }
         [TestMethod]
         public void IsFibonacciNumberShouldReturnTrue()
@@ -69,25 +80,37 @@ namespace Project2aTests
             Assert.AreEqual(false, MyMath.IsFibonacciNumber(11));
             Assert.AreEqual(false, MyMath.IsFibonacciNumber(12));
         }
-        //[TestMethod]
-        //public void TestGreatestCommonDivisor()
-        //{
-        //    // list of Greatest Common Divisors for Pair of numbers 
-        //    Dictionary<int, int[]> gcdNumbers = new Dictionary<int, int[]>()
-        //    {
-        //        {4, new int[2]{ 12, 56 } },
-        //        {6, new int[2]{ 18, 60 } },
-        //        {3, new int[2]{ 234, 555 } },
-        //        {40, new int[2]{ 120, 320 } }
-        //    };
+        [TestMethod]
+        public void TestGreatestCommonDivisor()
+        {
+            // list of Greatest Common Divisors for Pair of numbers 
+            var gcdNumbers = new Dictionary<int, int[]>()
+            {
+                {4, new int[2]{ 12, 56 } },
+                {6, new int[2]{ 18, 60 } },
+                {3, new int[2]{ 234, 555 } },
+                {40, new int[2]{ 120, 320 } }
+            };
 
-        //    // Test FindGreatestCommonDivisor
-        //    var wrongResults = gcdNumbers.Where(gcd => MathUtilities.FindGreatestCommonDivisor(gcd.Value[0], gcd.Value[1]) != gcd.Key);
-        //    foreach (var wrongResult in wrongResults)
-        //    {
-        //        int result = MathUtilities.FindGreatestCommonDivisor(wrongResult.Value[0], wrongResult.Value[1]);
-        //        Console.WriteLine($"Testing FindGreatestCommonDivisor({wrongResult.Value[0]},{wrongResult.Value[1]}) returned {result} when it should return {wrongResult.Key}.");
-        //    }
-        //}
+            foreach(var gcd in gcdNumbers)
+            {
+                int[] numbersToTest = gcd.Value;
+                Assert.AreEqual(gcd.Key, MyMath.GreatestCommonDivisor(numbersToTest[0],numbersToTest[1]));
+            }
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void GreatestCommonDivisorShouldThrowArgumentOutOfRangeExceptionNumber1()
+        {
+            Console.WriteLine(MyMath.GreatestCommonDivisor(0, 1));
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void GreatestCommonDivisorShouldThrowArgumentOutOfRangeExceptionNumber2()
+        {
+            Console.WriteLine(MyMath.GreatestCommonDivisor(1, 0));
+
+        }
     }
 }
