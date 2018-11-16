@@ -42,22 +42,15 @@ namespace Project2a
         {
             if (number1 == 0)
             {
-                throw new ArgumentOutOfRangeException("number1", "Parameters can not be zero.");
+                return number2;
             }
 
             if (number2 == 0)
             {
-                throw new ArgumentOutOfRangeException("number2", "Parameters can not be zero.");
+                return number1;
             }
 
-            int modulo = number1 % number2;
-
-            if (modulo == 0)
-            {
-                return number2;
-            }
-
-            return GreatestCommonDivisor(number2, modulo);
+            return GreatestCommonDivisor(number2, number1 % number2);
         }
         static public bool IsPrime(int number)
         {
