@@ -25,7 +25,7 @@ namespace Project2a
         }
         static public void AddOperator(string calculateOperator, MathMethod calculationMethod)
         {
-            _methodsByOperator.Add(calculateOperator, calculationMethod);
+            _methodsByOperator[calculateOperator]= calculationMethod;
         }
         static public bool IsValidOperator(string calculateOperator)
         {
