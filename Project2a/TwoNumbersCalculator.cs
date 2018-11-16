@@ -39,10 +39,6 @@ namespace Project2a
             return _result;
 
         }
-        public override string ToString()
-        {
-            return $"{_number1} {_calculationOperator} {_number2} = {_result}";
-        }
 
         private int GetANumber(string inputMessage)
         {
@@ -62,6 +58,10 @@ namespace Project2a
                 Console.WriteLine("Invalid operator !!!");
             }
             return calculationOperator;
+        }
+        public override string ToString()
+        {
+            return $"{_number1} {_calculationOperator} {_number2} = {_result}";
         }
 
     }

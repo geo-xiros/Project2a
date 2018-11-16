@@ -27,6 +27,10 @@ namespace Project2a
         }
         static public bool IsFibonacciNumber(int number)
         {
+            if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException("number", "Parameters can not be negatives.");
+            }
             int a = 0;
             int b = 1;
             for (; a < number;)
