@@ -18,6 +18,37 @@ namespace Project2aTests
             Assert.AreEqual(2, Calculator.Calculate("sqrt", 4, 2));
         }
         [TestMethod]
+        public void IsValidOperatorShouldReturnTrue()
+        {
+            Assert.AreEqual(true, Calculator.IsValidOperator("+"));
+            Assert.AreEqual(true, Calculator.IsValidOperator("-"));
+            Assert.AreEqual(true, Calculator.IsValidOperator("/"));
+            Assert.AreEqual(true, Calculator.IsValidOperator("*"));
+            Assert.AreEqual(true, Calculator.IsValidOperator("sqrt"));
+        }
+        [TestMethod]
+        public void IsValidOperatorShouldReturnFalse()
+        {
+            Assert.AreEqual(false, Calculator.IsValidOperator("."));
+            Assert.AreEqual(false, Calculator.IsValidOperator("y"));
+            Assert.AreEqual(false, Calculator.IsValidOperator("a"));
+            Assert.AreEqual(false, Calculator.IsValidOperator("z"));
+            Assert.AreEqual(false,Calculator.IsValidOperator("xxx"));
+        }
+        [TestMethod]
+        public void TestAddingOperator()
+        {
+            Calculator.AddOperator("add", (n1, n2) => n1 + n2);
+            Assert.AreEqual(3, Calculator.Calculate("add", 1, 2));
+        }
+        [TestMethod]
+        public void TestGettingOperators()
+        {
+            Calculator.AddOperator("add", (n1, n2) => n1 + n2);
+            Assert.AreEqual("+, -, /, *, %, sqrt, add", Calculator.Operators());
+        }
+
+        [TestMethod]
         public void OperatorsOverloading()
         {
             Calculator.AddOperator("add", (n1, n2) => n1 + n2);
