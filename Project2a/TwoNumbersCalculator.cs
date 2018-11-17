@@ -15,7 +15,7 @@ namespace Project2a
         private int _result;
         private string _calculationOperator;
 
-        public TwoNumbersCalculator() : this(new UserInputNumber(Console.ReadLine), new UserInputOperator(Console.ReadLine)) { }
+        public TwoNumbersCalculator() : this(new UserInputNumber(Console.ReadLine), new UserInputOperator(Console.ReadLine, Calculator.IsValidOperator)) { }
         public TwoNumbersCalculator(UserInputNumber userInputNumber, UserInputOperator userInputOperator)
         {
             _userInputNumber = userInputNumber;
@@ -39,7 +39,7 @@ namespace Project2a
                 }
             }
 
-            _result= Calculator.Calculate(_calculationOperator, _number1, _number2);
+            _result = Calculator.Calculate(_calculationOperator, _number1, _number2);
             return _result;
 
         }
@@ -47,7 +47,7 @@ namespace Project2a
         private int GetANumber(string inputMessage)
         {
             int number;
-            while (!_userInputNumber.GetUserInput(inputMessage, out number))
+            while (!_userInputNumber.GetInput(inputMessage, out number))
             {
                 Console.WriteLine("Invalid number !!!");
             }
@@ -56,8 +56,7 @@ namespace Project2a
         private string GetAnOperator(string inputMessage)
         {
             string calculationOperator;
-            while (!_userInputOperator.GetUserInput(inputMessage, out calculationOperator) ||
-                   !Calculator.IsValidOperator(calculationOperator))
+            while (!_userInputOperator.GetInput(inputMessage, out calculationOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
             }

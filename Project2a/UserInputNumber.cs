@@ -8,7 +8,7 @@ namespace Project2a
 {
     class UserInputNumber : UserInput<int>
     {
-        public UserInputNumber(GetInput inputMethod)
+        public UserInputNumber(Func<string> inputMethod)
         {
             _inputMethod = inputMethod;
         }

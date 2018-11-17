@@ -8,10 +8,10 @@ namespace Project2a
 {
     abstract class UserInput<T>
     {
-        public delegate string GetInput();
-        protected GetInput _inputMethod;
+        //public delegate string GetInput();
+        protected Func<string> _inputMethod;
 
-        public bool GetUserInput(string message, out T output)
+        public bool GetInput(string message, out T output)
         {
             Console.Write(message);
             string input = _inputMethod();

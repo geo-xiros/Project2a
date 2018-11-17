@@ -12,7 +12,7 @@ namespace Project2a
         {
             if (number < 0)
             {
-                throw new ArgumentOutOfRangeException("number", "Parameters can not be negatives.");
+                throw new ArgumentOutOfRangeException("number", "Fibonacci parameters can not be negatives.");
             }
 
             int a = 0;
@@ -29,7 +29,7 @@ namespace Project2a
         {
             if (number < 0)
             {
-                throw new ArgumentOutOfRangeException("number", "Parameters can not be negatives.");
+                throw new ArgumentOutOfRangeException("number", "IsFibonacciNumber parameters can not be negatives.");
             }
             int a = 0;
             int b = 1;
