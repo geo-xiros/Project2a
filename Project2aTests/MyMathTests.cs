@@ -52,7 +52,7 @@ namespace Project2aTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void FibonacciShouldThrowArgumentOutOfRangeException()
         {
-            Console.WriteLine(MyMath.Fibonacci(-1));
+            MyMath.Fibonacci(-1);
         }
         [TestMethod]
         public void IsFibonacciNumberShouldReturnTrue()
@@ -80,6 +80,13 @@ namespace Project2aTests
             Assert.AreEqual(false, MyMath.IsFibonacciNumber(11));
             Assert.AreEqual(false, MyMath.IsFibonacciNumber(12));
         }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void IsFibonacciNumberShouldThrowArgumentOutOfRangeException()
+        {
+            MyMath.IsFibonacciNumber(-1);
+        }
+
         [TestMethod]
         public void TestGreatestCommonDivisor()
         {

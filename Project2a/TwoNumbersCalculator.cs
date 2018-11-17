@@ -15,7 +15,7 @@ namespace Project2a
         private int _result;
         private string _calculationOperator;
 
-        public TwoNumbersCalculator() : this(new UserInputNumber(), new UserInputOperator()) { }
+        public TwoNumbersCalculator() : this(new UserInputNumber(Console.ReadLine), new UserInputOperator(Console.ReadLine)) { }
         public TwoNumbersCalculator(UserInputNumber userInputNumber, UserInputOperator userInputOperator)
         {
             _userInputNumber = userInputNumber;
@@ -28,13 +28,15 @@ namespace Project2a
 
             _calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
 
-            _number2 = GetANumber("Give Second Number:");
-
-
-            while (_calculationOperator == "/" && _number2 == 0)
+            if (_calculationOperator != "sqrt")
             {
-                Console.WriteLine("Can not divide by zero.");
-                _number2 = GetANumber("Give a Second Number :");
+                _number2 = GetANumber("Give Second Number:");
+
+                while (_calculationOperator == "/" && _number2 == 0)
+                {
+                    Console.WriteLine("Can not divide by zero.");
+                    _number2 = GetANumber("Give a Second Number :");
+                }
             }
 
             _result= Calculator.Calculate(_calculationOperator, _number1, _number2);
@@ -45,7 +47,7 @@ namespace Project2a
         private int GetANumber(string inputMessage)
         {
             int number;
-            while (!_userInputNumber.GetInputNumber(inputMessage, out number))
+            while (!_userInputNumber.GetUserInput(inputMessage, out number))
             {
                 Console.WriteLine("Invalid number !!!");
             }
@@ -54,7 +56,7 @@ namespace Project2a
         private string GetAnOperator(string inputMessage)
         {
             string calculationOperator;
-            while (!_userInputOperator.GetInputOperator(inputMessage, out calculationOperator) ||
+            while (!_userInputOperator.GetUserInput(inputMessage, out calculationOperator) ||
                    !Calculator.IsValidOperator(calculationOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
