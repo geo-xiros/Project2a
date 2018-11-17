@@ -66,7 +66,15 @@ namespace Project2a
         }
         public override string ToString()
         {
-            return $"{_number1} {_calculationOperator} {_number2} = {_result}";
+            if (_calculationOperator == "sqrt")
+            {
+                return $"Squear root of {_number1} is {_result}";
+            }
+            else
+            {
+                return $"{_number1} {_calculationOperator} {_number2} = {_result}";
+            }
+            
         }
 
     }
