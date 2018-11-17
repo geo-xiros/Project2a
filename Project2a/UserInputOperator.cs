@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    class UserInputOperator : UserInput
+    class UserInputOperator : UserInput<string>
     {
-        public UserInputOperator() : this(Console.ReadLine) { }
-        public UserInputOperator(GetInput inputMethod) : base(inputMethod) { }
-
-        public bool GetInputOperator(string message, out string calculateOperator)
+        public UserInputOperator(GetInput inputMethod)
         {
-            Console.Write(message);
-            calculateOperator = _inputMethod();
+            _inputMethod = inputMethod;
+        }
+        public override bool IsValidInput(string input, out string calculateOperator)
+        {
+            calculateOperator = input;
             return true;
         }
     }
