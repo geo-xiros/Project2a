@@ -28,6 +28,8 @@ namespace Project2a
 
             _calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
 
+            // TODO 
+            // αυτο το if δεν μου αρεσει καθολου...
             if (_calculationOperator != "sqrt")
             {
                 _number2 = GetANumber("Give Second Number:");
