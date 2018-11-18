@@ -24,7 +24,6 @@ namespace Project2a
     {
         static void Main(string[] args)
         {
-            MyMath.IsPrime(2);
             TwoNumbersCalculator twoNumbersCalculator1 = new TwoNumbersCalculator();
             TwoNumbersCalculator twoNumbersCalculator2 = new TwoNumbersCalculator();
 
