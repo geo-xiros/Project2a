@@ -24,20 +24,20 @@ namespace Project2a
         public int GetTwoNumbersCalculation()
         {
 
-            _number1 = GetANumber("Give First Number:");
+            GetANumber("Give First Number:", out _number1);
 
-            _calculationOperator = GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+            GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
 
             // TODO 
             // αυτο το if δεν μου αρεσει καθολου...
             if (_calculationOperator != "sqrt")
             {
-                _number2 = GetANumber("Give Second Number:");
+                GetANumber("Give Second Number:", out _number2);
 
                 while (_calculationOperator == "/" && _number2 == 0)
                 {
                     Console.WriteLine("Can not divide by zero.");
-                    _number2 = GetANumber("Give a Second Number :");
+                    GetANumber("Give a Second Number :", out _number2);
                 }
             }
 
@@ -46,23 +46,23 @@ namespace Project2a
 
         }
 
-        private int GetANumber(string inputMessage)
+        private void GetANumber(string inputMessage, out int number)
         {
-            int number;
+            //int number;
             while (!_userInputNumber.GetInput(inputMessage, out number))
             {
                 Console.WriteLine("Invalid number !!!");
             }
-            return number;
+            //return number;
         }
-        private string GetAnOperator(string inputMessage)
+        private void GetAnOperator(string inputMessage)
         {
-            string calculationOperator;
-            while (!_userInputOperator.GetInput(inputMessage, out calculationOperator))
+            //string calculationOperator;
+            while (!_userInputOperator.GetInput(inputMessage, out _calculationOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
             }
-            return calculationOperator;
+            //return calculationOperator;
         }
         public override string ToString()
         {
@@ -74,7 +74,7 @@ namespace Project2a
             {
                 return $"{_number1} {_calculationOperator} {_number2} = {_result}";
             }
-            
+
         }
 
     }

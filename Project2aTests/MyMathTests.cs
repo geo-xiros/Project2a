@@ -36,7 +36,7 @@ namespace Project2aTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void IsPrimeShouldThrowArgumentOutOfRangeException()
         {
-            Console.WriteLine(MyMath.IsPrime(-10));
+            MyMath.IsPrime(-10);
         }
         [TestMethod]
         public void TestFibonacci()
