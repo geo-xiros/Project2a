@@ -14,10 +14,18 @@ namespace Project2a
         private int _number2;
         private int _result;
         private string _calculationOperator;
+        private Calculator<int> _calculator;
+        public TwoNumbersCalculator()
+        {
+            //   : this(new UserInputNumber(Console.ReadLine), new UserInputOperator(Console.ReadLine, Calculator.IsValidOperator)) { }
+            _calculator = Calculator<int>.CreateIntCalculator();
+            _userInputNumber = new UserInputNumber(Console.ReadLine);
+            _userInputOperator = new UserInputOperator(Console.ReadLine, _calculator.IsValidOperator);
 
-        public TwoNumbersCalculator() : this(new UserInputNumber(Console.ReadLine), new UserInputOperator(Console.ReadLine, Calculator.IsValidOperator)) { }
+        }
         public TwoNumbersCalculator(UserInputNumber userInputNumber, UserInputOperator userInputOperator)
         {
+            _calculator = Calculator<int>.CreateIntCalculator();
             _userInputNumber = userInputNumber;
             _userInputOperator = userInputOperator;
         }
@@ -26,7 +34,7 @@ namespace Project2a
 
             GetANumber("Give First Number:", out _number1);
 
-            GetAnOperator($"Get calculation operator ({Calculator.Operators()}):");
+            GetAnOperator($"Get calculation operator ({_calculator.Operators()}):");
 
             // TODO 
             // αυτο το if δεν μου αρεσει καθολου...
@@ -41,7 +49,7 @@ namespace Project2a
                 }
             }
 
-            _result = Calculator.Calculate(_calculationOperator, _number1, _number2);
+            _result = _calculator.Calculate(_calculationOperator, _number1, _number2);
             return _result;
 
         }

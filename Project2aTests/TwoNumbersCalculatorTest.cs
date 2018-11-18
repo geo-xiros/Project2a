@@ -11,8 +11,9 @@ namespace Project2aTests
         [TestMethod]
         public void GetTwoNumbersCalculationShouldReturnCalculations()
         {
+            Calculator<int> calculator = Calculator<int>.CreateIntCalculator();
             UserInputNumber fakeUserInputNumber = new UserInputNumber(new FakeInputMethod("5,5,10,5,2,6,yy,6,2").GetInput);
-            UserInputOperator fakeUserInputOperator = new UserInputOperator(new FakeInputMethod("+,-,*,xx,/").GetInput, Calculator.IsValidOperator);
+            UserInputOperator fakeUserInputOperator = new UserInputOperator(new FakeInputMethod("+,-,*,xx,/").GetInput, calculator.IsValidOperator);
 
             TwoNumbersCalculator twoNumbersCalculator = new TwoNumbersCalculator(fakeUserInputNumber, fakeUserInputOperator);
             Assert.AreEqual(10, twoNumbersCalculator.GetTwoNumbersCalculation());
@@ -24,8 +25,9 @@ namespace Project2aTests
         [TestMethod]
         public void ToStringShouldReturnCalculations()
         {
+            Calculator<int> calculator = Calculator<int>.CreateIntCalculator();
             UserInputNumber fakeUserInputNumber = new UserInputNumber(new FakeInputMethod("5,5,10,5,2,6,6,2,8,5,4,2").GetInput);
-            UserInputOperator fakeUserInputOperator = new UserInputOperator(new FakeInputMethod("+,-,*,/,%,sqrt").GetInput, Calculator.IsValidOperator);
+            UserInputOperator fakeUserInputOperator = new UserInputOperator(new FakeInputMethod("+,-,*,/,%,sqrt").GetInput, calculator.IsValidOperator);
 
             TwoNumbersCalculator twoNumbersCalculator = new TwoNumbersCalculator(fakeUserInputNumber, fakeUserInputOperator);
             twoNumbersCalculator.GetTwoNumbersCalculation();

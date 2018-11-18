@@ -43,8 +43,9 @@ namespace Project2aTests
         [TestMethod]
         public void TestInputOperator()
         {
+            Calculator<int> calculator = Calculator<int>.CreateIntCalculator();
             FakeInputMethod fakeInputMethod = new FakeInputMethod("+,-,*");
-            UserInputOperator userInputOperator = new UserInputOperator(fakeInputMethod.GetInput, Calculator.IsValidOperator);
+            UserInputOperator userInputOperator = new UserInputOperator(fakeInputMethod.GetInput, calculator.IsValidOperator);
             Assert.AreEqual(true, userInputOperator.GetInput("get an operator:", out string calculateOperator));
             Assert.AreEqual("+", calculateOperator);
 

@@ -6,39 +6,51 @@ using System.Threading.Tasks;
 
 namespace Project2a
 {
-    static class Calculator
+    class Calculator<T>
     {
-        public delegate int MathMethod(int number1, int number2);
-        static private Dictionary<string, MathMethod> _methodsByOperator;
-
-        static Calculator()
+        //public delegate T MathMethod(T number1, T number2);
+        private Dictionary<string, Func<T, T, T>> _methodsByOperator;
+        public Calculator()
         {
-            _methodsByOperator = new Dictionary<string, MathMethod>()
-            {
-                {"+", (n1,n2) => n1+n2 },
-                {"-", (n1,n2) => n1-n2 },
-                {"/", (n1,n2) => n1/n2 },
-                {"*", (n1,n2) => n1*n2 },
-                {"%", (n1,n2) => n1%n2 },
-                // TODO: Ουτε αυτο μου αρεσει γιατι παιρνει δυο παραμετρους αλλα χρησιμοποιει την μια μονο ...
-                { "sqrt", (n1,n2) => (int) Math.Sqrt(n1) } 
-            };
+            _methodsByOperator = new Dictionary<string, Func<T, T, T>>();
         }
-        static public void AddOperator(string calculateOperator, MathMethod calculationMethod)
+        public static Calculator<int> CreateIntCalculator()
         {
-            _methodsByOperator[calculateOperator]= calculationMethod;
+            Calculator<int> calcInt = new Calculator<int>();
+            calcInt.AddOperator("+", (a, b) => a + b);
+            calcInt.AddOperator("-", (a, b) => a - b);
+            calcInt.AddOperator("/", (a, b) => a / b);
+            calcInt.AddOperator("*", (a, b) => a * b);
+            calcInt.AddOperator("%", (a, b) => a % b);
+            calcInt.AddOperator("sqrt", (a, b) => (int)Math.Sqrt(a));
+            return calcInt;
         }
-        static public bool IsValidOperator(string calculateOperator)
+        public static Calculator<float> CreateFloatCalculator()
+        {
+            Calculator<float> calcFloat = new Calculator<float>();
+            calcFloat.AddOperator("+", (a, b) => a + b);
+            calcFloat.AddOperator("-", (a, b) => a - b);
+            calcFloat.AddOperator("/", (a, b) => a / b);
+            calcFloat.AddOperator("*", (a, b) => a * b);
+            calcFloat.AddOperator("%", (a, b) => a % b);
+            calcFloat.AddOperator("sqrt", (a, b) => (float)Math.Sqrt(a));
+            return calcFloat;
+        }
+        public void AddOperator(string calculateOperator, Func<T, T, T> calculationMethod)
+        {
+            _methodsByOperator[calculateOperator] = calculationMethod;
+        }
+        public bool IsValidOperator(string calculateOperator)
         {
             return _methodsByOperator.ContainsKey(calculateOperator);
         }
-        static public string Operators()
+        public string Operators()
         {
             return string.Join(", ", _methodsByOperator.Select(i => i.Key).ToArray());
         }
-        static public int Calculate(string calculateOperator, int number1, int number2)
+        public T Calculate(string calculateOperator, T number1, T number2)
         {
-            MathMethod mathMethod = _methodsByOperator[calculateOperator];
+            Func<T, T, T> mathMethod = _methodsByOperator[calculateOperator];
             return mathMethod(number1, number2);
         }
     }
