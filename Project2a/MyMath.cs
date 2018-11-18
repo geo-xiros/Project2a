@@ -8,18 +8,18 @@ namespace Project2a
 {
     static class MyMath
     {
-        static public int Fibonacci(int number)
+        static public long Fibonacci(int number)
         {
             if (number < 0)
             {
                 throw new ArgumentOutOfRangeException("number", "Fibonacci parameters can not be negatives.");
             }
 
-            int a = 0;
-            int b = 1;
+            long a = 0;
+            long b = 1;
             for (; number > 0; number--)
             {
-                int c = b;
+                long c = b;
                 b += a;
                 a = c;
             }
@@ -31,11 +31,11 @@ namespace Project2a
             {
                 throw new ArgumentOutOfRangeException("number", "IsFibonacciNumber parameters can not be negatives.");
             }
-            int a = 0;
-            int b = 1;
+            long a = 0;
+            long b = 1;
             for (; a < number;)
             {
-                int c = b;
+                long c = b;
                 b += a;
                 a = c;
             }

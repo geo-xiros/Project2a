@@ -55,7 +55,7 @@ namespace Project2a
             // 5. Based on the 2nd result find the corresponding Fibonacci Number
             try
             {
-                int fibonacci = MyMath.Fibonacci(result2);
+                long fibonacci = MyMath.Fibonacci(result2);
                 Console.WriteLine($"The {result2}nth Fibonacci number is {fibonacci}");
             }
             catch (ArgumentOutOfRangeException e)
