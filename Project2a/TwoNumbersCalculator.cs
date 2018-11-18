@@ -42,7 +42,7 @@ namespace Project2a
             {
                 GetANumber("Give Second Number:", out _number2);
 
-                while (_calculationOperator == "/" && _number2 == 0)
+                while ((_calculationOperator == "/" || _calculationOperator == "%") && _number2 == 0)
                 {
                     Console.WriteLine("Can not divide by zero.");
                     GetANumber("Give a Second Number :", out _number2);
@@ -56,21 +56,17 @@ namespace Project2a
 
         private void GetANumber(string inputMessage, out int number)
         {
-            //int number;
             while (!_userInputNumber.GetInput(inputMessage, out number))
             {
                 Console.WriteLine("Invalid number !!!");
             }
-            //return number;
         }
         private void GetAnOperator(string inputMessage)
         {
-            //string calculationOperator;
             while (!_userInputOperator.GetInput(inputMessage, out _calculationOperator))
             {
                 Console.WriteLine("Invalid operator !!!");
             }
-            //return calculationOperator;
         }
         public override string ToString()
         {
