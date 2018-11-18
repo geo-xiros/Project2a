@@ -14,7 +14,7 @@ namespace Project2a
             _inputMethod = inputMethod;
             _isValidOperator = isValidOperator;
         }
-        public override bool IsValidInput(string input, out string calculateOperator)
+        public override bool TryParse(string input, out string calculateOperator)
         {
             calculateOperator = input;
             return _isValidOperator(calculateOperator);

@@ -12,7 +12,7 @@ namespace Project2a
         {
             _inputMethod = inputMethod;
         }
-        public override bool IsValidInput(string input, out int number)
+        public override bool TryParse(string input, out int number)
         {
             return int.TryParse(input, out number);
         }

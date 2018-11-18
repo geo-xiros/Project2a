@@ -15,8 +15,8 @@ namespace Project2a
         {
             Console.Write(message);
             string input = _inputMethod();
-            return IsValidInput(input, out output);
+            return TryParse(input, out output);
         }
-        public abstract bool IsValidInput(string input, out T output);
+        public abstract bool TryParse(string input, out T output);
     }
 }
