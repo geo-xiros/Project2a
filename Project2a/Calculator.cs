@@ -10,7 +10,7 @@ namespace Project2a
     {
         //public delegate T MathMethod(T number1, T number2);
         private Dictionary<string, Func<T, T, T>> _methodsByOperator;
-        public Calculator()
+        private Calculator()
         {
             _methodsByOperator = new Dictionary<string, Func<T, T, T>>();
         }
