@@ -56,7 +56,7 @@ namespace Project2aTests
         [TestMethod]
         public void OperatorsOverloading()
         {
-            Calculator<int> calculator = new Calculator<int>();
+            Calculator<int> calculator = Calculator<int>.CreateIntCalculator();
             calculator.AddOperator("add", (n1, n2) => n1 + n2);
             calculator.AddOperator("sub", (n1, n2) => n1 - n2);
             calculator.AddOperator("div", (n1, n2) => n1 / n2);
