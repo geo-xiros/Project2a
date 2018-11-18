@@ -24,7 +24,7 @@ namespace Project2aTests
         [TestMethod]
         public void ToStringShouldReturnCalculations()
         {
-            UserInputNumber fakeUserInputNumber = new UserInputNumber(new FakeInputMethod("5,5,10,5,2,6,6,2,8,5,4,2").GetInput);
+            UserInputNumber fakeUserInputNumber = new UserInputNumber(new FakeInputMethod("5,5,10,5,2,6,6,0,2,8,0,5,4,2").GetInput);
             UserInputOperator fakeUserInputOperator = new UserInputOperator(new FakeInputMethod("+,-,*,/,%,sqrt").GetInput, Calculator.IsValidOperator);
 
             TwoNumbersCalculator twoNumbersCalculator = new TwoNumbersCalculator(fakeUserInputNumber, fakeUserInputOperator);
